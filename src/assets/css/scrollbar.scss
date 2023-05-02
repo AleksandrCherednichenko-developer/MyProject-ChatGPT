@@ -1,0 +1,19 @@
+/* Работает в Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(gray, .5) rgba(gray, .2);
+}
+
+/* Работает в Chrome, Edge и Safari */
+*::-webkit-scrollbar {
+    width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+    background: lightgray;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: gray;
+    border-radius: 10px;
+}

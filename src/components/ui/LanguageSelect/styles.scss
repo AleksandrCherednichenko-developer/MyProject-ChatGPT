@@ -1,0 +1,17 @@
+.languages-select {
+
+    :deep(.multiselect__single) {
+        font-size: calc-rem(12px);
+        font-weight: $fBold;
+    }
+
+    :deep(.multiselect__content-wrapper) {
+        font-size: calc-rem(12px);
+        font-weight: $fBold;
+    }
+
+    :deep(.multiselect__option) {
+        padding: 5px 10px;
+        min-height: 30px;
+    }
+}
