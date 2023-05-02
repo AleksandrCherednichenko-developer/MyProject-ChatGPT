@@ -1,0 +1,13 @@
+{
+    "locales": {
+        "ru": "Russian",
+        "en": "English"
+    },
+    "title": "ChatGPT",
+    "welcome": "Welcome!",
+    "navbar": {
+        "home": "Home",
+        "about": "About",
+        "contact": "Contact"
+    }
+}
