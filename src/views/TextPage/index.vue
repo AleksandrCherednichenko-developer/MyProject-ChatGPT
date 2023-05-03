@@ -1,10 +1,10 @@
 <template>
-    <section class="section content-container text-page">
-        <div class="text-page__preview">
+    <section class="section content-container dialogue-page">
+        <div class="preview">
             <p>{{ $t('preview.text') }}</p>
         </div>
 
-        <div class="text-page__messages">
+        <div class="messages">
             <template v-for="(message, i) in chatMessages" :key="i">
                 <UIMessage
                     :text="message.content"
@@ -15,15 +15,15 @@
             <LoaderMessages v-if="loading" side="left" />
         </div>
 
-        <div class="text-page__controls">
+        <div class="controls">
             <UIInput
                 :value="userMessage"
-                class="text-page__controls-input"
+                class="controls-input"
                 @input="(value)=>userMessage=value"
                 @keydown.enter="sendText(userMessage)"
             />
             <SubmitButton
-                class="text-page__controls-button"
+                class="controls-button"
                 @click="sendText(userMessage)"
             />
         </div>
