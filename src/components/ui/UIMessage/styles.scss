@@ -1,0 +1,23 @@
+.message {
+    display: flex;
+    align-items: center;
+    gap: calc-rem(10px);
+    min-width: calc-rem(100px);
+    max-width: calc-rem(500px);
+    width: fit-content;
+    height: fit-content;
+    border-radius: 25px;
+    padding: calc-rem($basePadding);
+
+    &.left-side{
+        border-bottom-left-radius: 2px;
+        margin-right: auto;
+        background-color: lightgray;
+    }
+
+    &.right-side{
+        border-bottom-right-radius: 2px;
+        margin-left: auto;
+        background-color: rgba(gray, .7);
+    }
+}

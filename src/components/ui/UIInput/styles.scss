@@ -1,0 +1,15 @@
+.input {
+    @include transit('box-shadow');
+    border: $baseBorder;
+    border-radius: $baseRadius;
+    padding: calc-rem(5px) $basePadding;
+
+    @include hover(){
+        box-shadow: $hoverShadow;
+    }
+
+    &:focus{
+        outline: none;
+        box-shadow: $hoverShadow;
+    }
+}

@@ -3,11 +3,13 @@
         "ru": "Russian",
         "en": "English"
     },
-    "title": "ChatGPT",
-    "welcome": "Welcome!",
     "navbar": {
         "home": "Home",
+        "chat": "Chat",
         "about": "About",
         "contact": "Contact"
-    }
+    },
+    "title": "OpenAI integration",
+    "welcome": "Welcome!",
+    "input_placeholder": "Please enter text"
 }

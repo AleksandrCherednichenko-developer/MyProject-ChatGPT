@@ -34,7 +34,7 @@ async function getMessage (text) {
         if (resp.headers.get(CONTENT_TYPE).split(';')[0] === MIME_TYPE) {
             data = await resp.json().catch(() => null);
         }
-        payload = { message: data?.choices[0].message.content };
+        payload = { message: data?.choices[0].message };
     } catch (error) {
         console.log(error);
     }
