@@ -1,6 +1,6 @@
 <template>
     <button class="btn submit__btn">
-        <SvgIcon name="submit-icon" />
+        <SvgIcon name="submit" />
     </button>
 </template>
 

@@ -6,6 +6,7 @@
     "navbar": {
         "home": "Home",
         "chat": "Chat",
+        "text": "Text generation",
         "about": "About",
         "contact": "Contact"
     },

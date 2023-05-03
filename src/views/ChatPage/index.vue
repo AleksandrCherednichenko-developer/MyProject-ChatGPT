@@ -34,7 +34,7 @@ export default {
 
 <script setup>
 import { ref } from 'vue';
-import getMessage from '@/services/base-request';
+import getMessage from '@/services/chat-request';
 import { toastError, toastSuccess } from '@/composables/toast';
 import SubmitButton from '@/components/ui/buttons/SubmitButton/index.vue';
 import UIInput from '@/components/ui/UIInput/index.vue';
