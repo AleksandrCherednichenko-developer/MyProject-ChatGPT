@@ -50,6 +50,11 @@ const navbarMenu = [
         icon: 'text',
     },
     {
+        name: 'image',
+        path: Tr.i18nRoute({ name: ROUTE_NAMES.IMAGE_PAGE.routeName }),
+        icon: 'image',
+    },
+    {
         name: 'about',
         path: Tr.i18nRoute({ name: ROUTE_NAMES.ABOUT_PAGE.routeName }),
         icon: 'info',
