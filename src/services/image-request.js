@@ -24,7 +24,6 @@ async function getImage (text) {
 
     try {
         const resp = await fetch(VITE_API_IMAGE, options);
-        console.log('-> resp', resp);
 
         status.code = resp.status;
         status.ok = resp.ok;
@@ -32,7 +31,7 @@ async function getImage (text) {
         if (resp.headers.get(CONTENT_TYPE).split(';')[0] === MIME_TYPE) {
             data = await resp.json().catch(() => null);
         }
-        payload = { message: data?.choices[0].text };
+        payload = { message: data?.data[0].url };
     } catch (error) {
         console.log(error);
     }

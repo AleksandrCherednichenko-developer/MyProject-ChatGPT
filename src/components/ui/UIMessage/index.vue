@@ -3,7 +3,26 @@
         class="message"
         :class="[props.side==='left' ? 'left-side' : 'right-side']"
     >
-        <p>{{ props.text }}</p>
+        <p
+            v-if="props.text"
+            class="message__text"
+        >
+            {{ props.text }}
+        </p>
+        <div
+            v-if="props.url"
+            class="message__image"
+        >
+            <img
+                class="message__image-picture"
+                :src="props.url"
+                alt="OpenAI-image"
+            >
+            <SvgIcon
+                name="full-size-image"
+                class="message__image-full-size"
+            />
+        </div>
     </div>
 </template>
 
@@ -14,8 +33,11 @@ export default {
 </script>
 
 <script setup>
+import SvgIcon from '@/components/ui/SvgIcon/index.vue';
+
 const props = defineProps({
     text: { type: String, default: '' },
+    url: { type: String, default: '' },
     side: { type: String, default: '' },
 });
 </script>
