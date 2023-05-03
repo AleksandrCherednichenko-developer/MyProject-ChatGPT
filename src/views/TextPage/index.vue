@@ -1,7 +1,7 @@
 <template>
     <section class="section content-container dialogue-page">
         <div class="preview">
-            <p>{{ $t('preview.chat') }}</p>
+            <p>{{ $t('preview.text') }}</p>
         </div>
 
         <div class="messages">
@@ -20,11 +20,11 @@
                 :value="userMessage"
                 class="controls-input"
                 @input="(value)=>userMessage=value"
-                @keydown.enter="sendMessage(userMessage)"
+                @keydown.enter="sendText(userMessage)"
             />
             <SubmitButton
                 class="controls-button"
-                @click="sendMessage(userMessage)"
+                @click="sendText(userMessage)"
             />
         </div>
     </section>
@@ -32,13 +32,13 @@
 
 <script>
 export default {
-    name: 'ChatPage',
+    name: 'TextPage',
 };
 </script>
 
 <script setup>
 import { ref } from 'vue';
-import getMessage from '@/services/chat-request';
+import getText from '@/services/text-request';
 import { toastError, toastSuccess } from '@/composables/toast';
 import SubmitButton from '@/components/ui/buttons/SubmitButton/index.vue';
 import UIInput from '@/components/ui/UIInput/index.vue';
@@ -49,16 +49,16 @@ const userMessage = ref('');
 const chatMessages = ref([]);
 const loading = ref(false);
 
-const sendMessage = async text => {
+const sendText = async text => {
     loading.value = true;
     chatMessages.value.push({ role: 'user', content: text });
     userMessage.value = '';
 
-    const resp = await getMessage(text);
+    const resp = await getText(text);
     loading.value = false;
 
     if (!resp.status.ok) return toastError();
-    chatMessages.value.push(resp.payload.message);
+    chatMessages.value.push({ role: 'assistant', content: resp.payload.message });
 };
 </script>
 

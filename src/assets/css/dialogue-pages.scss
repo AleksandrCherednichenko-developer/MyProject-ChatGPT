@@ -1,0 +1,33 @@
+.dialogue-page {
+    display: grid;
+    grid-template-rows: minmax(50px, 100px) 1fr max-content;
+    gap: calc-rem(20px);
+    height: 100%;
+
+    .messages {
+        display: flex;
+        flex-direction: column;
+        gap: calc-rem(10px);
+        min-height: 100%;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        width: 100%;
+        border: $baseBorder;
+        border-radius: $baseRadius;
+        padding: $basePadding;
+    }
+
+    .controls {
+        display: flex;
+        align-items: center;
+        gap: calc-rem(20px);
+
+        &-input {
+            width: 100%;
+        }
+
+        &-button {
+
+        }
+    }
+}

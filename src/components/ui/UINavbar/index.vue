@@ -45,6 +45,11 @@ const navbarMenu = [
         icon: 'chat',
     },
     {
+        name: 'text',
+        path: Tr.i18nRoute({ name: ROUTE_NAMES.TEXT_PAGE.routeName }),
+        icon: 'text',
+    },
+    {
         name: 'about',
         path: Tr.i18nRoute({ name: ROUTE_NAMES.ABOUT_PAGE.routeName }),
         icon: 'info',
