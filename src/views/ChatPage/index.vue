@@ -1,5 +1,9 @@
 <template>
     <section class="section content-container chat-page">
+        <div class="chat-page__preview">
+            <p>{{ $t('preview.chat') }}</p>
+        </div>
+
         <div class="chat-page__messages">
             <template v-for="(message, i) in chatMessages" :key="i">
                 <UIMessage
@@ -51,10 +55,10 @@ const sendMessage = async text => {
     userMessage.value = '';
 
     const resp = await getMessage(text);
-    if (!resp.status.ok) return toastError();
-
-    chatMessages.value.push(resp.payload.message);
     loading.value = false;
+
+    if (!resp.status.ok) return toastError();
+    chatMessages.value.push(resp.payload.message);
 };
 </script>
 
