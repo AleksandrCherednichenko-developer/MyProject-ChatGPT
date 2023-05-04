@@ -35,14 +35,14 @@
                 @click="sendMessage(userMessage)"
             />
         </div>
-    </section>
 
-    <BackgroundLayout :class="{'background-layout--active':activeFullSize}">
-        <div class="image__full-size">
-            <CloseButton @close="toggleFullSize(false)" />
-            <img :src="imageSrc" alt="image">
-        </div>
-    </BackgroundLayout>
+        <BackgroundLayout :class="{'background-layout--active':activeFullSize}">
+            <div class="image__full-size">
+                <CloseButton @close="toggleFullSize(false)" />
+                <img :src="imageSrc" alt="image">
+            </div>
+        </BackgroundLayout>
+    </section>
 </template>
 
 <script>
