@@ -21,6 +21,7 @@
                 class="controls-input"
                 @input="(value)=>userMessage=value"
                 @keydown.enter="sendMessage(userMessage)"
+                @clear-input="userMessage=''"
             />
             <SubmitButton
                 class="controls-button"
