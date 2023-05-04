@@ -1,0 +1,16 @@
+.image__full-size{
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-height: 500px;
+    max-width: 500px;
+
+    .close__btn{
+        position: absolute;
+        z-index: 1;
+        top: calc-rem(10px);
+        right: calc-rem(10px);
+    }
+}

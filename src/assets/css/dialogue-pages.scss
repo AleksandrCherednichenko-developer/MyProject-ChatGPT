@@ -4,6 +4,20 @@
     gap: calc-rem(20px);
     height: 100%;
 
+    .controls {
+        display: flex;
+        align-items: center;
+        gap: calc-rem(20px);
+
+        &-input {
+            width: 100%;
+        }
+
+        &-button {
+
+        }
+    }
+
     .messages {
         display: flex;
         flex-direction: column;
@@ -17,17 +31,8 @@
         padding: $basePadding;
     }
 
-    .controls {
-        display: flex;
-        align-items: center;
-        gap: calc-rem(20px);
-
-        &-input {
-            width: 100%;
-        }
-
-        &-button {
-
-        }
+    .image{
+        min-height: 100%;
+        max-height: 100%;
     }
 }

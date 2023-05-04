@@ -1,14 +1,21 @@
 <template>
     <section class="section content-container dialogue-page">
         <div class="preview">
-            <p>{{ $t('preview.chat') }}</p>
+            <p>{{ $t('preview.image') }}</p>
         </div>
 
         <div class="messages">
             <template v-for="(message, i) in chatMessages" :key="i">
                 <UIMessage
+                    v-if="message.role==='user'"
                     :text="message.content"
-                    :side="message.role==='user' ? 'right' : 'left'"
+                    side="right"
+                />
+                <UIMessage
+                    v-else
+                    :src="message.content"
+                    side="left"
+                    @open-full-size="toggleFullSize(true, message.content)"
                 />
             </template>
 
@@ -29,38 +36,56 @@
             />
         </div>
     </section>
+
+    <BackgroundLayout :class="{'background-layout--active':activeFullSize}">
+        <div class="image__full-size">
+            <CloseButton @close="toggleFullSize(false)" />
+            <img :src="imageSrc" alt="image">
+        </div>
+    </BackgroundLayout>
 </template>
 
 <script>
 export default {
-    name: 'ChatPage',
+    name: 'ImagePage',
 };
 </script>
 
 <script setup>
 import { ref } from 'vue';
-import getMessage from '@/services/chat-request';
+import getImage from '@/services/image-request';
 import { toastError, toastSuccess } from '@/composables/toast';
 import SubmitButton from '@/components/ui/buttons/SubmitButton/index.vue';
 import UIInput from '@/components/ui/UIInput/index.vue';
 import LoaderMessages from '@/components/ui/LoaderMessages/index.vue';
 import UIMessage from '@/components/ui/UIMessage/index.vue';
+import BackgroundLayout from '@/layout/BackgroundLayout/index.vue';
+import CloseButton from '@/components/ui/buttons/CloseButton/index.vue';
 
 const userMessage = ref('');
 const chatMessages = ref([]);
 const loading = ref(false);
+const activeFullSize = ref(false);
+const imageSrc = ref();
 
 const sendMessage = async text => {
     loading.value = true;
     chatMessages.value.push({ role: 'user', content: text });
     userMessage.value = '';
 
-    const resp = await getMessage(text);
+    const resp = await getImage(text);
     loading.value = false;
 
     if (!resp.status.ok) return toastError();
-    chatMessages.value.push(resp.payload.message);
+    chatMessages.value.push({ role: 'assistant', content: resp.payload.message });
 };
+
+const toggleFullSize = (value, src = null) => {
+    activeFullSize.value = value;
+    if (!src) return;
+    imageSrc.value = src;
+};
+
 </script>
 
 <style src="./styles.scss" lang="scss" scoped />

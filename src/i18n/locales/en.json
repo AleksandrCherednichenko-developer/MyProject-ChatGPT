@@ -7,6 +7,7 @@
         "home": "Home",
         "chat": "Chat",
         "text": "Text generation",
+        "image": "Image generation",
         "about": "About",
         "contact": "Contact"
     },
@@ -15,6 +16,7 @@
     "input_placeholder": "Please enter text",
     "preview": {
         "chat": "Welcome to OpenAI chat page! Here you can chat with AI language model and explore the possibilities of natural language processing technology. This chatbot is designed to help you with any questions or issues you may have, and to learn from your input to improve its language capabilities over time. So feel free to ask anything and engage in a conversation with the AI.",
-        "text": "OpenAI Text completion is a tool for automatic text completion that allows users to generate text based on existing data. This tool helps authors create higher quality and faster text materials. It can also be used for automating the process of spelling and grammar checking. OpenAI Text completion provides users with more possibilities for creating high-quality text materials."
+        "text": "OpenAI Text completion is a tool for automatic text completion that allows users to generate text based on existing data. This tool helps authors create higher quality and faster text materials. It can also be used for automating the process of spelling and grammar checking. OpenAI Text completion provides users with more possibilities for creating high-quality text materials.",
+        "image": "OpenAI Images is a tool for creating and using images for various projects. It allows you to easily and quickly search and use images for your projects. You can also upload your own images for use in projects. Use OpenAI Images to access a large number of images for your projects."
     }
 }

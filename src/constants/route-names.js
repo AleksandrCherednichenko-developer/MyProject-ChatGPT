@@ -15,6 +15,10 @@ export const ROUTE_NAMES = {
         routeName: 'TEXT_PAGE',
         label: 'text_page',
     },
+    IMAGE_PAGE: {
+        routeName: 'IMAGE_PAGE',
+        label: 'image_page',
+    },
     ABOUT_PAGE: {
         routeName: 'ABOUT_PAGE',
         label: 'about_page',
