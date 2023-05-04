@@ -54,7 +54,7 @@ export default {
 <script setup>
 import { ref } from 'vue';
 import getImage from '@/services/image-request';
-import { toastError, toastSuccess } from '@/composables/toast';
+import { toastError } from '@/composables/toast';
 import SubmitButton from '@/components/ui/buttons/SubmitButton/index.vue';
 import UIInput from '@/components/ui/UIInput/index.vue';
 import LoaderMessages from '@/components/ui/LoaderMessages/index.vue';
@@ -82,8 +82,7 @@ const sendMessage = async text => {
 
 const toggleFullSize = (value, src = null) => {
     activeFullSize.value = value;
-    if (!src) return;
-    imageSrc.value = src;
+    imageSrc.value = src ?? null;
 };
 
 </script>

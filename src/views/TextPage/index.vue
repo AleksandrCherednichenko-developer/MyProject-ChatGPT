@@ -40,7 +40,7 @@ export default {
 <script setup>
 import { ref } from 'vue';
 import getText from '@/services/text-request';
-import { toastError, toastSuccess } from '@/composables/toast';
+import { toastError } from '@/composables/toast';
 import SubmitButton from '@/components/ui/buttons/SubmitButton/index.vue';
 import UIInput from '@/components/ui/UIInput/index.vue';
 import LoaderMessages from '@/components/ui/LoaderMessages/index.vue';

@@ -2,7 +2,7 @@
     @include transit('box-shadow');
     border: $baseBorder;
     border-radius: $baseRadius;
-    padding: calc-rem(5px) calc-rem(30px) calc-rem(5px) $basePadding;
+    padding: calc-rem(5px) calc-rem(35px) calc-rem(5px) $basePadding;
     width: 100%;
 
     @include hover(){

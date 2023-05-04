@@ -1,6 +1,6 @@
 <template>
     <button
-        class="burger__btn"
+        class="btn burger__btn"
         :class="{'burger__btn--active' : active}"
         @click="()=>onClickBtn()"
     >

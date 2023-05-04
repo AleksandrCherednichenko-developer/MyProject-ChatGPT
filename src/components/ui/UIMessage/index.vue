@@ -3,26 +3,23 @@
         class="message"
         :class="[props.side==='left' ? 'left-side' : 'right-side']"
     >
-        <p
-            v-if="props.text"
-            class="message__text"
-        >
+        <p v-if="props.text" class="message__text">
             {{ props.text }}
         </p>
-        <div
-            v-if="props.src"
-            class="message__image"
-        >
+
+        <div v-if="props.src" class="message__image">
             <img
                 class="message__image-picture"
                 :src="props.src"
                 alt="OpenAI-image"
             >
-            <SvgIcon
-                name="full-size-image"
-                class="message__image-full-size"
-                @click="qwe"
-            />
+        </div>
+
+        <div class="message__control">
+            <div class="message__control-btns">
+                <CopyButton :text="props.text ?? props.src" />
+                <FullSizeButton v-if="props.src" @click="emit('open-full-size')" />
+            </div>
         </div>
     </div>
 </template>
@@ -34,7 +31,8 @@ export default {
 </script>
 
 <script setup>
-import SvgIcon from '@/components/ui/SvgIcon/index.vue';
+import CopyButton from '@/components/ui/buttons/CopyButton/index.vue';
+import FullSizeButton from '@/components/ui/buttons/FullSizeButton/index.vue';
 
 const props = defineProps({
     text: { type: String, default: '' },
@@ -43,11 +41,6 @@ const props = defineProps({
 });
 
 const emit = defineEmits(['open-full-size']);
-
-const qwe = () => {
-    console.log(123);
-    emit('open-full-size');
-};
 </script>
 
 <style src="./styles.scss" lang="scss" scoped />

@@ -1,5 +1,4 @@
-export const errorToastTimeout = 5000;
-export const successToastTimeout = 3000;
+export const toastTimeout = 5000;
 
 export const options = {
     position: 'bottom-right',
