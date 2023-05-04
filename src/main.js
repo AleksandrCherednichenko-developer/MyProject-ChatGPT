@@ -7,6 +7,7 @@ import Toast from 'vue-toastification';
 import { options } from '@/constants/toast-options';
 import i18n from '@/i18n';
 import BodyScrollLock from '@/directives/body-scroll-lock';
+import { polyfillClipboard } from '@/directives/polyfill-clipboard';
 import '@/assets/css/styles.scss';
 
 const app = createApp(App);
@@ -20,3 +21,4 @@ app.use(createPinia())
     .directive(BodyScrollLock.name, BodyScrollLock.directive);
 
 app.mount('#app');
+polyfillClipboard();

@@ -1,5 +1,5 @@
 <template>
-    <button class="close__btn" @click="emit('close')">
+    <button class="btn close__btn" @click="emit('close')">
         <SvgIcon name="close" class="close__btn-icon" />
     </button>
 </template>

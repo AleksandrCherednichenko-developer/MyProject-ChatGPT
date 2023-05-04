@@ -1,8 +1,5 @@
 .burger__btn {
     @include size(30px, 20px);
-    @include clear-button;
-    position: relative;
-    padding: 0;
 
     @include hover {
         .burger__btn-line{

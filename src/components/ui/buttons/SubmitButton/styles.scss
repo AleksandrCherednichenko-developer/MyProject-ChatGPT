@@ -8,7 +8,6 @@
     background-color: transparent;
     border: $baseBorder;
     border-radius: $baseRadius;
-    cursor: pointer;
 
     @include hover(){
         box-shadow: $hoverShadow;
