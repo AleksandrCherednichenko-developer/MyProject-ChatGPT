@@ -24,16 +24,14 @@ export default {
 </script>
 
 <script setup>
-import { computed, inject } from 'vue';
+import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import Multiselect from 'vue-multiselect';
-import { useRoute, useRouter } from 'vue-router';
+import { useRouter } from 'vue-router';
 import Tr from '@/i18n/translation';
 
 const router = useRouter();
-const route = useRoute();
 const { t, locale } = useI18n();
-const emitter = inject('emitter');
 const { supportedLocales } = Tr;
 
 const selectedLocale = computed(() => ({ value: locale.value, name: t(`locales.${locale.value}`) }));
@@ -43,17 +41,16 @@ const options = supportedLocales.map(el => ({
     name: t(`locales.${el}`),
 }));
 
-const switchLanguage = ({ value }) => {
-    Tr.switchLanguage(value);
+const switchLanguage = async ev => {
+    const newLocale = ev.value;
+    await Tr.switchLanguage(newLocale);
 
-    router.replace({
-        ...route,
-        params: {
-            ...route.params,
-            locale: value,
-        },
-    });
-    emitter.emit('close-navbar');
+    try {
+        await router.replace({ params: { locale: newLocale }});
+    } catch (e) {
+        console.error(e);
+        await router.push('/');
+    }
 };
 </script>
 
