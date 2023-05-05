@@ -1,15 +1,14 @@
 import { useToast } from 'vue-toastification';
 import i18n from '@/i18n';
-import { successToastTimeout, errorToastTimeout } from '@/constants/toast-options';
+import { toastTimeout } from '@/constants/toast-options';
 
 const toast = useToast();
+const { t } = i18n.global;
 
-export const toastSuccess = text => {
-    return toast.success('Success', { timeout: successToastTimeout });
-    // return toast.success(t(`toast.${text}`), { timeout: errorToastTimeout });
+export const toastSuccess = (text = null) => {
+    return toast.success(text ? t(`${text}`) : t('toast.success'), { timeout: toastTimeout });
 };
 
-export const toastError = text => {
-    return toast.error('Error', { timeout: errorToastTimeout });
-    // return toast.error(t(`toast.${text}`), { timeout: errorToastTimeout });
+export const toastError = (text = null) => {
+    return toast.error(text ? t(`${text}`) : t('toast.error'), { timeout: toastTimeout });
 };

@@ -22,6 +22,21 @@ const router = createRouter({
                     component: () => import('@/views/HomePage/index.vue'),
                 },
                 {
+                    path: 'chat',
+                    name: ROUTE_NAMES.CHAT_PAGE.routeName,
+                    component: () => import('@/views/ChatPage/index.vue'),
+                },
+                {
+                    path: 'text',
+                    name: ROUTE_NAMES.TEXT_PAGE.routeName,
+                    component: () => import('@/views/TextPage/index.vue'),
+                },
+                {
+                    path: 'image',
+                    name: ROUTE_NAMES.IMAGE_PAGE.routeName,
+                    component: () => import('@/views/ImagePage/index.vue'),
+                },
+                {
                     path: 'about',
                     name: ROUTE_NAMES.ABOUT_PAGE.routeName,
                     component: () => import('@/views/AboutPage/index.vue'),

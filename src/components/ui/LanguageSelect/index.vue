@@ -24,7 +24,7 @@ export default {
 </script>
 
 <script setup>
-import { computed, inject } from 'vue';
+import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import Multiselect from 'vue-multiselect';
 import { useRouter } from 'vue-router';
@@ -32,12 +32,11 @@ import Tr from '@/i18n/translation';
 
 const router = useRouter();
 const { t, locale } = useI18n();
-const emitter = inject('emitter');
-const { supportedLocale } = Tr;
+const { supportedLocales } = Tr;
 
 const selectedLocale = computed(() => ({ value: locale.value, name: t(`locales.${locale.value}`) }));
 
-const options = supportedLocale.map(el => ({
+const options = supportedLocales.map(el => ({
     value: el,
     name: t(`locales.${el}`),
 }));
@@ -52,7 +51,6 @@ const switchLanguage = async ev => {
         console.error(e);
         await router.push('/');
     }
-    emitter.emit('close-navbar');
 };
 </script>
 

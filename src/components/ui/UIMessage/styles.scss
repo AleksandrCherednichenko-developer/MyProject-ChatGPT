@@ -1,0 +1,94 @@
+.message {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: calc-rem(10px);
+    min-width: calc-rem(100px);
+    max-width: calc-rem(500px);
+    width: fit-content;
+    height: fit-content;
+    border-radius: calc-rem(15px);
+    padding: calc-rem($basePadding);
+
+    @include hover() {
+        .message__control {
+            opacity: 1;
+            overflow: visible;
+            visibility: visible;
+        }
+    }
+
+    &.left-side {
+        border-bottom-left-radius: 2px;
+        margin-right: auto;
+        background-color: lightgray;
+
+        .message__control {
+            right: 0;
+
+            &-btns {
+                background-color: lightgray;
+            }
+        }
+    }
+
+    &.right-side {
+        border-bottom-right-radius: 2px;
+        margin-left: auto;
+        background-color: rgba(gray, .7);
+
+        .message__control {
+            left: 0;
+
+            &-btns {
+                background-color: rgba(gray, .7);
+            }
+        }
+    }
+
+    &__text {
+    }
+
+    &__image {
+        position: relative;
+
+        &-picture {
+            max-width: 150px;
+            max-height: 150px;
+            border-radius: calc-rem(15px);
+        }
+
+        &-full-size {
+            @include transit('transform');
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: lightgray;
+            border-bottom-left-radius: calc-rem(5px);
+            cursor: pointer;
+
+            @include hover() {
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    &__control {
+        @include transit('opacity, overflow, visibility');
+        position: absolute;
+        bottom: calc-rem(-35px);
+        z-index: 10;
+        opacity: 0;
+        overflow: hidden;
+        visibility: hidden;
+
+        &-btns {
+            display: flex;
+            align-items: center;
+            gap: calc-rem(5px);
+            margin-top: calc-rem(25px);
+            border-radius: calc-rem(10px);
+            padding: calc-rem(3px);
+        }
+    }
+}

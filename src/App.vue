@@ -15,7 +15,8 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
+import Translations from '@/i18n/translation';
 import UIHeader from '@/components/ui/UIHeader/index.vue';
 import DefaultLayout from '@/layout/DefaultLayout/index.vue';
 import UINavbar from '@/components/ui/UINavbar/index.vue';
@@ -28,4 +29,8 @@ const onToggleNavbar = active => {
     activeNavbar.value = active.value;
     locked.value = active.value;
 };
+
+onMounted(async () => {
+    await Translations.switchLanguage(Translations.guessDefaultLocale());
+});
 </script>

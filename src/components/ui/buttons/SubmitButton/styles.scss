@@ -1,0 +1,20 @@
+.submit__btn{
+    @include transit('background-color, box-shadow');
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+    width: fit-content;
+    background-color: transparent;
+    border: $baseBorder;
+    border-radius: $baseRadius;
+
+    @include hover(){
+        box-shadow: $hoverShadow;
+    }
+
+    &:focus{
+        outline: none;
+        box-shadow: $hoverShadow;
+    }
+}

@@ -1,0 +1,30 @@
+.input {
+    @include transit('box-shadow');
+    border: $baseBorder;
+    border-radius: $baseRadius;
+    padding: calc-rem(5px) calc-rem(35px) calc-rem(5px) $basePadding;
+    width: 100%;
+
+    @include hover(){
+        box-shadow: $hoverShadow;
+    }
+
+    &:focus{
+        outline: none;
+        box-shadow: $hoverShadow;
+    }
+
+    &__wrapper{
+        position: relative;
+    }
+
+    &__clear{
+        position: absolute;
+        top: 50%;
+        bottom: 0;
+        transform: translate(0, -50%);
+        right: 5px;
+        z-index: 1;
+        cursor: pointer;
+    }
+}

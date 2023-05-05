@@ -4,7 +4,7 @@
             <router-link
                 v-for="item of navbarMenu"
                 :key="item.name"
-                :to="item.path"
+                :to="Tr.i18nRoute(item.path)"
                 class="navbar-item"
                 exact-active-class="navbar-item--active"
                 @click="onClickItem"
@@ -36,17 +36,32 @@ const emit = defineEmits(['click-navbar-item']);
 const navbarMenu = [
     {
         name: 'home',
-        path: Tr.i18nRoute({ name: ROUTE_NAMES.HOME_PAGE.routeName }),
+        path: { name: ROUTE_NAMES.HOME_PAGE.routeName },
         icon: 'home',
     },
     {
+        name: 'chat',
+        path: { name: ROUTE_NAMES.CHAT_PAGE.routeName },
+        icon: 'chat',
+    },
+    {
+        name: 'text',
+        path: { name: ROUTE_NAMES.TEXT_PAGE.routeName },
+        icon: 'text',
+    },
+    {
+        name: 'image',
+        path: { name: ROUTE_NAMES.IMAGE_PAGE.routeName },
+        icon: 'image',
+    },
+    {
         name: 'about',
-        path: Tr.i18nRoute({ name: ROUTE_NAMES.ABOUT_PAGE.routeName }),
+        path: { name: ROUTE_NAMES.ABOUT_PAGE.routeName },
         icon: 'info',
     },
     {
         name: 'contact',
-        path: Tr.i18nRoute({ name: ROUTE_NAMES.CONTACT_PAGE.routeName }),
+        path: { name: ROUTE_NAMES.CONTACT_PAGE.routeName },
         icon: 'phone',
     },
 ];
