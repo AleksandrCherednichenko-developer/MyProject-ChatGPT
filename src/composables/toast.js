@@ -6,9 +6,9 @@ const toast = useToast();
 const { t } = i18n.global;
 
 export const toastSuccess = (text = null) => {
-    return toast.success(text ? t(`toast.${text}`) : 'Success', { timeout: toastTimeout });
+    return toast.success(text ? t(`${text}`) : t('toast.success'), { timeout: toastTimeout });
 };
 
 export const toastError = (text = null) => {
-    return toast.error(text ? t(`toast.${text}`) : 'Error', { timeout: toastTimeout });
+    return toast.error(text ? t(`${text}`) : t('toast.error'), { timeout: toastTimeout });
 };

@@ -23,7 +23,7 @@ const { copy } = useClipboard();
 
 const copyText = () => {
     copy(props.text);
-    toastSuccess('copy_text');
+    toastSuccess('toast.copy_text');
 };
 </script>
 
