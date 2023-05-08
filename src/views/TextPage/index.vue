@@ -20,12 +20,12 @@
                 :value="userMessage"
                 class="controls-input"
                 @input="(value)=>userMessage=value"
-                @keydown.enter="sendText(userMessage)"
+                @keydown.enter="sendMessage(userMessage)"
                 @clear-input="userMessage=''"
             />
             <SubmitButton
                 class="controls-button"
-                @click="sendText(userMessage)"
+                @click="sendMessage(userMessage)"
             />
         </div>
     </section>
@@ -39,8 +39,7 @@ export default {
 
 <script setup>
 import { ref } from 'vue';
-import getText from '@/services/text-request';
-import { toastError } from '@/composables/toast';
+import { TextService } from '@/services/text-service';
 import SubmitButton from '@/components/ui/buttons/SubmitButton/index.vue';
 import UIInput from '@/components/ui/UIInput/index.vue';
 import LoaderMessages from '@/components/ui/LoaderMessages/index.vue';
@@ -50,16 +49,17 @@ const userMessage = ref('');
 const chatMessages = ref([]);
 const loading = ref(false);
 
-const sendText = async text => {
+const sendMessage = async text => {
+    if (!text) return;
+
     loading.value = true;
     chatMessages.value.push({ role: 'user', content: text });
     userMessage.value = '';
 
-    const resp = await getText(text);
+    const resp = await TextService.getText(text);
     loading.value = false;
 
-    if (!resp.status.ok) return toastError();
-    chatMessages.value.push({ role: 'assistant', content: resp.payload.message });
+    if (resp) chatMessages.value.push({ role: 'assistant', content: resp });
 };
 </script>
 
