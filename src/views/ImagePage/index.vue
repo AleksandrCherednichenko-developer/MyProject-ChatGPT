@@ -53,8 +53,7 @@ export default {
 
 <script setup>
 import { ref } from 'vue';
-import getImage from '@/services/image-request';
-import { toastError } from '@/composables/toast';
+import { ImageService } from '@/services/image-service';
 import SubmitButton from '@/components/ui/buttons/SubmitButton/index.vue';
 import UIInput from '@/components/ui/UIInput/index.vue';
 import LoaderMessages from '@/components/ui/LoaderMessages/index.vue';
@@ -69,15 +68,16 @@ const activeFullSize = ref(false);
 const imageSrc = ref();
 
 const sendMessage = async text => {
+    if (!text) return;
+
     loading.value = true;
     chatMessages.value.push({ role: 'user', content: text });
     userMessage.value = '';
 
-    const resp = await getImage(text);
+    const resp = await ImageService.getImage(text);
     loading.value = false;
 
-    if (!resp.status.ok) return toastError();
-    chatMessages.value.push({ role: 'assistant', content: resp.payload.message });
+    if (resp) chatMessages.value.push({ role: 'assistant', content: resp });
 };
 
 const toggleFullSize = (value, src = null) => {

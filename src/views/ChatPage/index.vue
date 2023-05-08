@@ -39,8 +39,7 @@ export default {
 
 <script setup>
 import { ref } from 'vue';
-import getMessage from '@/services/chat-request';
-import { toastError } from '@/composables/toast';
+import { ChatService } from '@/services/chat-service';
 import SubmitButton from '@/components/ui/buttons/SubmitButton/index.vue';
 import UIInput from '@/components/ui/UIInput/index.vue';
 import LoaderMessages from '@/components/ui/LoaderMessages/index.vue';
@@ -51,15 +50,16 @@ const chatMessages = ref([]);
 const loading = ref(false);
 
 const sendMessage = async text => {
+    if (!text) return;
+
     loading.value = true;
     chatMessages.value.push({ role: 'user', content: text });
     userMessage.value = '';
 
-    const resp = await getMessage(text);
+    const resp = await ChatService.getMessage(text);
     loading.value = false;
 
-    if (!resp.status.ok) return toastError();
-    chatMessages.value.push(resp.payload.message);
+    if (resp) chatMessages.value.push(resp);
 };
 </script>
 
