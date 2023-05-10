@@ -12,3 +12,7 @@ export const toastSuccess = (text = null) => {
 export const toastError = (text = null) => {
     return toast.error(text ? t(`${text}`) : t('toast.error'), { timeout: toastTimeout });
 };
+
+export const toastWarn = (text = null) => {
+    return toast.warning(text ? t(`${text}`) : t('toast.warning'), { timeout: toastTimeout });
+};
