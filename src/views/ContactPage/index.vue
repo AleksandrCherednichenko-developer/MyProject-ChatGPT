@@ -1,5 +1,7 @@
 <template>
-    <p>This is Contact page</p>
+    <section class="section content-container chat__page">
+        <p>This is Contact page</p>
+    </section>
 </template>
 
 <script>
