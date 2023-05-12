@@ -1,5 +1,5 @@
 import { BaseCRUD } from '@/services/base-request';
-import { toastError } from '@/composables/toast';
+import { toastError, toastWarn } from '@/composables/toast';
 
 const { VITE_API_CHAT, VITE_API_MODEL_CHAT } = import.meta.env;
 
@@ -18,7 +18,10 @@ export class ChatService {
             },
         });
 
-        if (!resp.status.ok) return toastError();
+        if (!resp.status.ok) {
+            if (resp.status.code === 429) return toastWarn('toast.limit');
+            return toastError();
+        }
 
         return resp.payload?.choices[0].message;
     }
