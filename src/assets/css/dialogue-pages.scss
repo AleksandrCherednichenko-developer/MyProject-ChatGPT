@@ -1,6 +1,6 @@
 .chat__page {
     display: grid;
-    grid-template-rows: minmax(50px, 100px) 1fr max-content;
+    grid-template-rows: minmax(50px, auto) 1fr max-content;
     gap: calc-rem(20px);
     height: 100%;
 

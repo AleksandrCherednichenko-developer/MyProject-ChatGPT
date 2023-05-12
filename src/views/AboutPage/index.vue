@@ -1,6 +1,6 @@
 <template>
-    <section class="section content-container chat__page">
-        <p>This is About page</p>
+    <section class="section content-container">
+        <PreviewText text="about" />
     </section>
 </template>
 
@@ -8,4 +8,8 @@
 export default {
     name: 'AboutPage',
 };
+</script>
+
+<script setup>
+import PreviewText from '@/components/ui/PreviewText';
 </script>

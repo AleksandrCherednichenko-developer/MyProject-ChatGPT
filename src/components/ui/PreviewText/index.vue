@@ -14,5 +14,6 @@ export default {
 const props = defineProps({
     text: { type: String, default: '' },
 });
-
 </script>
+
+<style src="./styles.scss" lang="scss" scoped />
