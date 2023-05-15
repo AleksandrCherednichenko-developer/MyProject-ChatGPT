@@ -9,6 +9,8 @@ import { resolve, dirname } from 'node:path';
 export default defineConfig(({ command, mode }) => {
     const env = loadEnv(mode, process.cwd(), '');
     return {
+        base: '/MyProject-OpenAI/',
+
         build: {
             outDir: 'dist',
         },
