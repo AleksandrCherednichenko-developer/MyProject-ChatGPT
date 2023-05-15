@@ -1,0 +1,1 @@
+import{_ as e,o as t,c as o,a as s}from"./index.f09b3f80.js";const c={name:"AboutPage"},n={class:"section content-container chat__page"},a=s("p",null,"This is About page",-1),_=[a];function r(i,p,d,l,u,f){return t(),o("section",n,_)}const m=e(c,[["render",r]]);export{m as default};
