@@ -1,0 +1,1 @@
+import{_ as s,o as t,c as o,a as c,t as _}from"./index.b87d4351.js";const a={name:"HomePage"},n={class:"section content-container"},r={class:"header_h6"};function d(e,i,p,l,m,f){return t(),o("section",n,[c("h6",r,_(e.$t("welcome")),1)])}const u=s(a,[["render",d],["__scopeId","data-v-17680b44"]]);export{u as default};
