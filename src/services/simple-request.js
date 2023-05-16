@@ -17,7 +17,7 @@ async function request ({
     const options = {
         method,
         headers: {
-            Authorization: `Bearer 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`,
+            Authorization: `Bearer ${VITE_API_KEY}`,
             'Content-Type': mimeType,
         },
         body: JSON.stringify(body),
