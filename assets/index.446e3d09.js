@@ -1,0 +1,1 @@
+import{_,o as a,c,a as o,t as r}from"./index.01b553e4.js";const n={class:"chat__page-preview"},p={name:"PreviewText"},i=Object.assign(p,{props:{text:{type:String,default:""}},setup(e){const t=e;return(s,l)=>(a(),c("div",n,[o("p",null,r(s.$t(`preview.${t.text}`)),1)]))}}),d=_(i,[["__scopeId","data-v-c933ff8a"]]);export{d as P};

@@ -1,1 +1,0 @@
-import{P as e}from"./index.7ffab51f.js";import{o as t,c as o,b as s,f as a}from"./index.bb0e6908.js";const c={class:"section content-container"},n={name:"AboutPage"},m=Object.assign(n,{setup(r){return(_,i)=>(t(),o("section",c,[s(a(e),{text:"about"})]))}});export{m as default};
